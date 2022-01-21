@@ -20,6 +20,8 @@ pub enum Commands {
         command: String,
         args: Vec<String>,
     },
+    /// Remove command
+    Remove { key: String },
     /// Run command
     Run {
         key: String,
