@@ -30,7 +30,7 @@ async fn main() -> io::Result<()> {
             );
             let init_file = init::InitFile::get().await;
             if let Some(sc) = init_file.get_command(key) {
-                xdrc::command::run(sc, extra_args.clone());
+                xdrc::command::run(sc, extra_args);
             }
         }
         arguments::Commands::Remove { key } => {

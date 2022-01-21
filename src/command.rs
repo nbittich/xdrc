@@ -2,11 +2,10 @@ use std::{io::Write, process::Command};
 
 use crate::init::ShellCommand;
 
-pub fn run(command: &ShellCommand, extra_args: Vec<String>) {
-    let mut c: Vec<String> = command.get_args().clone();
-    c.extend(extra_args);
+pub fn run(command: &ShellCommand, extra_args: &[String]) {
+    let args = [&command.get_args()[..], extra_args].concat();
     let out = Command::new(command.get_command())
-        .args(&c[..])
+        .args(args)
         .output()
         .unwrap();
     std::io::stdout().write_all(&out.stdout[..]).unwrap();
