@@ -1,12 +1,15 @@
-use std::{io::Write, process::Command};
+use tokio::io::{self, AsyncWriteExt};
+use tokio::process::Command;
 
 use crate::init::ShellCommand;
 
-pub fn run(command: &ShellCommand, extra_args: &[String]) {
+pub async fn run(command: &ShellCommand, extra_args: &[String]) {
     let args = [&command.get_args()[..], extra_args].concat();
     let out = Command::new(command.get_command())
         .args(args)
         .output()
+        .await
         .unwrap();
-    std::io::stdout().write_all(&out.stdout[..]).unwrap();
+    let mut stdout = io::stdout();
+    stdout.write_all(&out.stdout[..]).await.unwrap();
 }
