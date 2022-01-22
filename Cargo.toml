@@ -5,6 +5,11 @@ edition = "2021"
 authors = ["Nordine Bittich <contact@bittich.be>" ]
 license = "MIT"
 description = "An overkill way of making bash aliases"
+homepage = "https://github.com/nbittich/xdrc"
+readme = "README.md"
+categories = ["command-line-utilities"]
+keywords = ["alias", "bash_aliases"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
