@@ -8,7 +8,7 @@ async fn main() -> io::Result<()> {
     let cli = arguments::Cli::parse();
 
     match &cli.command {
-        arguments::Commands::Init { path } => {
+        arguments::Commands::Info { path } => {
             println!("'init' was used, name is: {:?}", path);
             let init_file = init::InitFile::get().await;
             println!("{:?}", init_file);
@@ -33,7 +33,7 @@ async fn main() -> io::Result<()> {
                 xdrc::command::run(sc, extra_args).await;
             }
         }
-        arguments::Commands::Remove { key } => {
+        arguments::Commands::Delete { key } => {
             println!("remove was used with key {key}");
             let mut init_file = init::InitFile::get().await;
             println!(
