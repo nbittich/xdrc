@@ -3,6 +3,8 @@ name = "xdrc"
 version = "0.1.0"
 edition = "2021"
 authors = ["Nordine Bittich <contact@bittich.be>" ]
+license = "MIT"
+descrition = "An overkill way of making bash aliases"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

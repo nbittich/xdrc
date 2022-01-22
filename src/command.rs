@@ -4,7 +4,7 @@ use tokio::io::{AsyncBufReadExt, BufReader};
 use tokio::process::Command;
 
 use crate::init::ShellCommand;
-
+/// Run a command
 pub async fn run(command: &ShellCommand, extra_args: &[String]) {
     let args = [&command.get_args()[..], extra_args].concat();
     let mut cmd = Command::new(command.get_command());

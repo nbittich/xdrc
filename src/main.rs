@@ -27,7 +27,7 @@ async fn main() -> io::Result<()> {
         arguments::Commands::Delete { key } => {
             let mut init_file = init::InitFile::get().await;
             println!(
-                "remove shellcommand: {}",
+                "remove command: {}",
                 init_file.remove(key).await.is_some()
             );
         }
